@@ -8,3 +8,8 @@
   background-color: red;
   color: white;
 }
+
+.container {
+  padding: 20px;
+  border: 5px solid black;
+}

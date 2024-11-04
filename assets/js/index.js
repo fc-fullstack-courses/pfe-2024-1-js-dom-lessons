@@ -149,16 +149,36 @@ const resetBtn = document.getElementById('resetBtn');
 // resetBtn.addEventListener('click', handleResetClick, { once: true });
 
 // рішення 3 - removeEventListener
-function handleResetClick() {
-  console.log('click');
-  alert('ви клікнули на кнопку ресет');
+function handleResetClick(event) {
+  // об'єкт події, що трапилася
+  console.log(event);
+
+  // посилання на об'єкт, з яким сталася подія
+  console.log(event.target);
+
+  // посилання на об'єкт, чий оборбник було запущено
+  console.log(event.currentTarget);
 
   // прибираємо слухач після того як він відпрацював
   // передаємо тип події та посилання на ту саму функцію
   // resetBtn.removeEventListener('click', handleResetClick);
 }
+const container = document.querySelector('.container');
 
 resetBtn.addEventListener('click', handleResetClick);
-resetBtn.addEventListener('click', function testFunc() {
-  console.log('testing');
-});
+container.addEventListener('click', handleResetClick);
+document.body.addEventListener('click', handleResetClick);
+document.addEventListener('click', handleResetClick);
+
+// resetBtn.addEventListener('click', function testFunc() {
+//   console.log('testing');
+// });
+
+// dispatchEvent - симулює подію на якомусь елементі
+
+const fakeClickEvent = new MouseEvent('click');
+
+// resetBtn.dispatchEvent(fakeClickEvent);
+
+
+
