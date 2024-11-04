@@ -3,3 +3,8 @@
   font-weight: bold;
   margin: 12px 0;
 }
+
+.error {
+  background-color: red;
+  color: white;
+}

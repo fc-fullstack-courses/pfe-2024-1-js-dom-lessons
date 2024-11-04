@@ -59,7 +59,7 @@ const [clickMeBtn] = document.getElementsByTagName('button');
 // let clicks = 0;
 let clocks = 'wristwatch';
 
-function createHandleButtonClick () {
+function createHandleButtonClick() {
   let clicks = 0;
 
   function handleButtonClick() {
@@ -74,3 +74,37 @@ const handleButtonClick = createHandleButtonClick();
 // 3. при кліку на 1 заупустити 2
 // clickMeBtn.addEventListener('click', createHandleButtonClick());
 clickMeBtn.addEventListener('click', handleButtonClick);
+
+/*
+  методи пошуку елементів у ДОМ-дереві
+  
+  document.getElementsByTagName('button') 
+    повертає масивоподібну колекцію всіх елементів на сторінці з вказаним тегом
+  
+  document.getElementsByClassName('class')
+    повертає масивоподібну колекцію всіх елементів на сторінці з вказаним класом
+  
+  document.getElementsByName('someName')
+    повертає масивоподібну колекцію всіх елементів на сторінці з вказаним
+
+  + document.getElementById('someId')
+    повертає перший елемент на сторінці з вказаним айдішніком
+
+  + document.querySelector() - повертає перший елемент на сторінці з вказаним css селектором 
+  + document.querySelectorAll() - повертає масив елементів на сторінці з вказаним css селектором 
+*/
+
+// повертає масивоподібну колекцію всіх елементів на сторінці з вказаним класом
+const [firstErrorBtn] = document.getElementsByClassName('error');
+
+// повертає масивоподібну колекцію всіх елементів на сторінці з вказаним
+const inputs = document.getElementsByName('someInputName');
+
+// повертає перший елемент на сторінці з вказаним айдішніком
+const select1 = document.getElementById('select-1');
+
+// повертає перший елемент на сторінці з вказаним css селектором
+const input = document.querySelector('body>input');
+
+// повертає масив елементів на сторінці з вказаним css селектором
+const btns = document.querySelectorAll('button');
