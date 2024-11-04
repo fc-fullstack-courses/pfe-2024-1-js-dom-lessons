@@ -73,7 +73,7 @@ const handleButtonClick = createHandleButtonClick();
 
 // 3. при кліку на 1 заупустити 2
 // clickMeBtn.addEventListener('click', createHandleButtonClick());
-clickMeBtn.addEventListener('click', handleButtonClick);
+// clickMeBtn.addEventListener('click', handleButtonClick);
 
 /*
   методи пошуку елементів у ДОМ-дереві
@@ -108,3 +108,15 @@ const input = document.querySelector('body>input');
 
 // повертає масив елементів на сторінці з вказаним css селектором
 const btns = document.querySelectorAll('button');
+
+// h1
+// const [,,h1] = document.getElementsByTagName('h1');
+const h1 = document.querySelector('section > h1');
+
+// img
+// const [, img] = document.getElementsByTagName('img');
+// const img = document.querySelector('section+img');
+const img = document.querySelector(`img[alt="Find ME"]`);
+
+// p
+const p = document.querySelector('.section>p');
