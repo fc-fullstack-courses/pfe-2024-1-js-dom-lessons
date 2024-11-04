@@ -120,3 +120,45 @@ const img = document.querySelector(`img[alt="Find ME"]`);
 
 // p
 const p = document.querySelector('.section>p');
+
+/*
+  на кнопку ресет повісити функцію-слухач яка має виводити повідомлення
+    повідомлення має показатися тільки при першому натисканні на кнопку
+*/
+const resetBtn = document.getElementById('resetBtn');
+
+// рішення 1 - через зовнішню змінну
+// let isMessageShown = false;
+
+// function handleResetClick() {
+//   // console.log('click');
+//   if(!isMessageShown) {
+//     alert('ви клікнули на кнопку ресет');
+//     isMessageShown = true;
+//   }
+// }
+
+// resetBtn.addEventListener('click', handleResetClick);
+
+// рішення 2 - зробити одноразовим через об'єкт налаштувань addEventListener
+// function handleResetClick() {
+//   console.log('click');
+//   alert('ви клікнули на кнопку ресет');
+// }
+
+// resetBtn.addEventListener('click', handleResetClick, { once: true });
+
+// рішення 3 - removeEventListener
+function handleResetClick() {
+  console.log('click');
+  alert('ви клікнули на кнопку ресет');
+
+  // прибираємо слухач після того як він відпрацював
+  // передаємо тип події та посилання на ту саму функцію
+  // resetBtn.removeEventListener('click', handleResetClick);
+}
+
+resetBtn.addEventListener('click', handleResetClick);
+resetBtn.addEventListener('click', function testFunc() {
+  console.log('testing');
+});
