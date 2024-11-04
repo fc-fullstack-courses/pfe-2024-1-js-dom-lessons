@@ -28,13 +28,13 @@ console.log(document);
 */
 
 // 1. знайти кнопку
-const buttons = document.getElementsByTagName('button');
-const [clickMeBtn] = buttons;
+// const buttons = document.getElementsByTagName('button');
+// const [clickMeBtn] = buttons;
 
-// 2. сказати що робити 
-function showMessage () {
-  alert('You clicked on button');
-}
+// 2. сказати що робити
+// function showMessage () {
+//   alert('You clicked on button');
+// }
 
 // 3. при кліку на 1 заупустити 2
 /*
@@ -44,7 +44,7 @@ function showMessage () {
   type - рядок, який каже яка саме подія має трапитися
   listener - функція, яка запуститься браузером коли подія відбудеться з target
 */
-clickMeBtn.addEventListener('click', showMessage);
+// clickMeBtn.addEventListener('click', showMessage);
 
 /*
   зробити в html файлі кнопку
@@ -52,3 +52,15 @@ clickMeBtn.addEventListener('click', showMessage);
 
   * приховати від зовншього коду кількість кліків
 */
+// 1. знайти кнопку
+const [clickMeBtn] = document.getElementsByTagName('button');
+
+// 2. сказати що робити
+let clicks = 0;
+
+function handleButtonClick() {
+  alert(++clicks);
+}
+
+// 3. при кліку на 1 заупустити 2
+clickMeBtn.addEventListener('click', handleButtonClick);
