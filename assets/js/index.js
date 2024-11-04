@@ -56,11 +56,21 @@ console.log(document);
 const [clickMeBtn] = document.getElementsByTagName('button');
 
 // 2. сказати що робити
-let clicks = 0;
+// let clicks = 0;
+let clocks = 'wristwatch';
 
-function handleButtonClick() {
-  alert(++clicks);
+function createHandleButtonClick () {
+  let clicks = 0;
+
+  function handleButtonClick() {
+    alert(++clicks);
+  }
+
+  return handleButtonClick;
 }
 
+const handleButtonClick = createHandleButtonClick();
+
 // 3. при кліку на 1 заупустити 2
+// clickMeBtn.addEventListener('click', createHandleButtonClick());
 clickMeBtn.addEventListener('click', handleButtonClick);
