@@ -11,7 +11,7 @@
     window.document - вхідна точка в API DOM
     document
 */
-console.log(document);
+// console.log(document);
 
 /*
   концепції взаємодії з DOM:
@@ -111,7 +111,7 @@ const btns = document.querySelectorAll('button');
 
 // h1
 // const [,,h1] = document.getElementsByTagName('h1');
-const h1 = document.querySelector('section > h1');
+// const h1 = document.querySelector('section > h1');
 
 // img
 // const [, img] = document.getElementsByTagName('img');
@@ -166,9 +166,9 @@ function handleResetClick(event) {
 const container = document.querySelector('.container');
 
 resetBtn.addEventListener('click', handleResetClick);
-container.addEventListener('click', handleResetClick);
-document.body.addEventListener('click', handleResetClick);
-document.addEventListener('click', handleResetClick);
+// container.addEventListener('click', handleResetClick);
+// document.body.addEventListener('click', handleResetClick);
+// document.addEventListener('click', handleResetClick);
 
 // resetBtn.addEventListener('click', function testFunc() {
 //   console.log('testing');
@@ -180,5 +180,24 @@ const fakeClickEvent = new MouseEvent('click');
 
 // resetBtn.dispatchEvent(fakeClickEvent);
 
+/*
+  Node (вузол) - основний будівельний блок ДОМу. 
+  Всі елементи, атрибутита текст у ДОМі робляться через вузли
 
+  Основні властивості вузлів:
+
+  node.baseURI - URL адреса сайту
+
+  node.childNodes - список всіх дитячіх вузлів поточного вузла.
+  node.firstChild - перший дитячий вузол
+  node.lastChild - останній дитячий вузол
+  node.nextSibling - посилання на наступний вузол після цього
+  node.previousSibling - посилання на поперденій вузол 
+  
+  node.parentNode - повертає батьківський вузол
+  node.parentElement - повертає батьківський елемент
+
+  node.textContent - містить текстовий вміст цього вузла. Дозволяє міняти текст вузла / елемента
+
+*/
 
