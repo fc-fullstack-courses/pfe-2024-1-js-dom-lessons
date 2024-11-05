@@ -207,3 +207,18 @@ const fakeClickEvent = new MouseEvent('click');
   При натисканні на кнопку промптом спитати у користувача число
   після цього відобразити у параграфі квадрат цього числа
 */
+
+const displayParagraph = document.getElementById('displayParagraph');
+const squareBtn = document.querySelector('#squareBtn');
+
+function handleSquareBtnClick () {
+  const number = +prompt('Введіть число');
+  
+  // if(!isNaN(number)) {
+    displayParagraph.textContent = `Результат: ${number * number}`;
+  // } else {
+  //   displayParagraph.textContent = `Введіть корректне число`;
+  // }
+}
+
+squareBtn.addEventListener('click', handleSquareBtnClick);
