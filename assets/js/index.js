@@ -171,11 +171,11 @@ function stopEvent (event) {
   event.stopPropagation();
 }
 
-resetBtn.addEventListener('click', handleResetClick);
-container.addEventListener('click', handleResetClick);
-container.addEventListener('click', stopEvent, true);
-document.body.addEventListener('click', handleResetClick);
-document.addEventListener('click', handleResetClick);
+// resetBtn.addEventListener('click', handleResetClick);
+// container.addEventListener('click', handleResetClick);
+// container.addEventListener('click', stopEvent, true);
+// document.body.addEventListener('click', handleResetClick);
+// document.addEventListener('click', handleResetClick);
 
 /*
   true - запуск на етапі занурнення 
@@ -255,3 +255,36 @@ function handleSquareBtnClick() {
 }
 
 squareBtn.addEventListener('click', handleSquareBtnClick);
+
+const btn1 = document.getElementById('btn1');
+const btn2 = document.getElementById('btn2');
+const btn3 = document.getElementById('btn3');
+const btn4 = document.getElementById('btn4');
+const btnContainer = document.getElementById('btnContainer');
+
+// function logText1 () {
+//   console.log(btn1.textContent);
+// }
+// function logText2 () {
+//   console.log(btn2.textContent);
+// }
+// function logText3 () {
+//   console.log(btn3.textContent);
+// }
+// function logText4 () {
+//   console.log(btn4.textContent);
+// }
+
+function logText (e) {
+  // console.log(e.target);
+  // console.dir(e.target);
+  if(e.target.tagName === 'BUTTON') {
+    console.log(e.target.textContent);
+  }
+}
+
+// btn1.addEventListener('click', logText);
+// btn2.addEventListener('click', logText);
+// btn3.addEventListener('click', logText);
+// btn4.addEventListener('click', logText);
+btnContainer.addEventListener('click', logText);
