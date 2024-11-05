@@ -151,10 +151,10 @@ const resetBtn = document.getElementById('resetBtn');
 // рішення 3 - removeEventListener
 function handleResetClick(event) {
   // об'єкт події, що трапилася
-  console.log(event);
+  // console.log(event);
 
   // посилання на об'єкт, з яким сталася подія
-  console.log(event.target);
+  // console.log(event.target);
 
   // посилання на об'єкт, чий оборбник було запущено
   console.log(event.currentTarget);
@@ -165,10 +165,43 @@ function handleResetClick(event) {
 }
 const container = document.querySelector('.container');
 
+function stopEvent (event) {
+  console.log(event);
+  // припиняеть подільший запуск обробників подій
+  event.stopPropagation();
+}
+
 resetBtn.addEventListener('click', handleResetClick);
-// container.addEventListener('click', handleResetClick);
-// document.body.addEventListener('click', handleResetClick);
-// document.addEventListener('click', handleResetClick);
+container.addEventListener('click', handleResetClick);
+container.addEventListener('click', stopEvent, true);
+document.body.addEventListener('click', handleResetClick);
+document.addEventListener('click', handleResetClick);
+
+/*
+  true - запуск на етапі занурнення 
+  false - на етапі всплиття
+*/
+// resetBtn.addEventListener('click', handleResetClick, false);
+// container.addEventListener('click', handleResetClick, true);
+// document.body.addEventListener('click', handleResetClick, { capture: true });
+// document.addEventListener('click', handleResetClick, false);
+/*
+  resetBtn.addEventListener('click', handleResetClick, false);
+  container.addEventListener('click', handleResetClick, true);
+  document.body.addEventListener('click', handleResetClick, false);
+  document.addEventListener('click', handleResetClick, true);
+1. document
+2. контейнер
+3. resetBtn
+4. body
+
+*/
+/*
+  Фази обробки подій:
+    1. дивиться з ким сталася наша подія (занурення)
+    2. найглибший елемент у дереві з яким подія трапилась (target)
+    3. браузер запуская обробнки подій починаючи з найглибшого до найпершого (всплиття)
+*/
 
 // resetBtn.addEventListener('click', function testFunc() {
 //   console.log('testing');
@@ -211,11 +244,11 @@ const fakeClickEvent = new MouseEvent('click');
 const displayParagraph = document.getElementById('displayParagraph');
 const squareBtn = document.querySelector('#squareBtn');
 
-function handleSquareBtnClick () {
+function handleSquareBtnClick() {
   const number = +prompt('Введіть число');
-  
+
   // if(!isNaN(number)) {
-    displayParagraph.textContent = `Результат: ${number * number}`;
+  displayParagraph.textContent = `Результат: ${number * number}`;
   // } else {
   //   displayParagraph.textContent = `Введіть корректне число`;
   // }
