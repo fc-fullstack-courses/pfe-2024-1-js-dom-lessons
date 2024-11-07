@@ -308,3 +308,44 @@ themeContainer.addEventListener('click', (event) => {
     themeDisplay.textContent = `Поточна тема: ${event.target.textContent}`;
   }
 });
+
+/*
+  Форми
+*/
+
+const formSumbitBtn = document.getElementById('formSumbitBtn');
+const form = document.getElementById('form');
+
+// formSumbitBtn.addEventListener('click', (e) => {
+//   console.log('test');
+//   e.preventDefault();
+// });
+
+// submit - подія відправки форми
+form.addEventListener('submit', (e) => {
+  // зупинка стандартної поведінки браузера при виконанні події
+  e.preventDefault();
+  // console.log('form submit event');
+  // console.log(e);
+
+  const { target: formElement } = e;
+
+  // всі інтерактивні елементи форми 
+  console.log(formElement.elements);
+
+  // console.log(formElement.elements.inputName);
+  const formInput = formElement.elements.inputName;
+  console.log(formInput);
+
+  /*
+    отримати значення, яке було введено в інпут
+  */
+  console.log(formInput.value);
+
+  // тут тексту не буде
+  // console.log(formInput.textContent);
+
+  // очистка даних у формі
+  // formInput.value = '';
+  formElement.reset();
+});
