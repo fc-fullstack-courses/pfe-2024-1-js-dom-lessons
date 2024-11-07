@@ -299,3 +299,12 @@ btnContainer.addEventListener('click', logText);
   того, на яку кнопку перемикання теми ви натиснули
   обробник має висіти тільки на одному елементі
 */
+
+const themeDisplay = document.querySelector('#themeDisplay');
+const themeContainer = document.querySelector('#themeContainer');
+
+themeContainer.addEventListener('click', (event) => {
+  if(event.target.tagName === "BUTTON") {
+    themeDisplay.textContent = `Поточна тема: ${event.target.textContent}`;
+  }
+});
