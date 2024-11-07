@@ -165,7 +165,7 @@ function handleResetClick(event) {
 }
 const container = document.querySelector('.container');
 
-function stopEvent (event) {
+function stopEvent(event) {
   console.log(event);
   // припиняеть подільший запуск обробників подій
   event.stopPropagation();
@@ -275,10 +275,10 @@ const btnContainer = document.getElementById('btnContainer');
 //   console.log(btn4.textContent);
 // }
 
-function logText (e) {
+function logText(e) {
   // console.log(e.target);
   // console.dir(e.target);
-  if(e.target.tagName === 'BUTTON') {
+  if (e.target.tagName === 'BUTTON') {
     console.log(e.target.textContent);
   }
 }
@@ -304,7 +304,7 @@ const themeDisplay = document.querySelector('#themeDisplay');
 const themeContainer = document.querySelector('#themeContainer');
 
 themeContainer.addEventListener('click', (event) => {
-  if(event.target.tagName === "BUTTON") {
+  if (event.target.tagName === 'BUTTON') {
     themeDisplay.textContent = `Поточна тема: ${event.target.textContent}`;
   }
 });
@@ -330,7 +330,7 @@ form.addEventListener('submit', (e) => {
 
   const { target: formElement } = e;
 
-  // всі інтерактивні елементи форми 
+  // всі інтерактивні елементи форми
   console.log(formElement.elements);
 
   // console.log(formElement.elements.inputName);
@@ -363,3 +363,30 @@ form.addEventListener('submit', (e) => {
   * якщо користувач вводить некорректне число то у парагрфі написати що він
     має ввести нормане число
 */
+
+const squareDisplay = document.getElementById('squareDisplay');
+const squareForm = document.getElementById('squareForm');
+
+squareForm.addEventListener('submit', (e) => {
+  e.preventDefault();
+
+  const {
+    target: {
+      elements: { num },
+    },
+    target
+  } = e;
+
+  // value інпута завжди рядок
+  // console.log(typeof num.value);
+
+  const number = +num.value;
+
+  if(isNaN(number)) {
+    squareDisplay.textContent = `Введіть корректне число`;
+  } else {
+    squareDisplay.textContent = `Результат: ${Math.pow(num.value, 2)}`;
+  }
+
+  target.reset();
+});
