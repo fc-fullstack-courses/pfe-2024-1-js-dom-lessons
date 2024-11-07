@@ -390,3 +390,56 @@ squareForm.addEventListener('submit', (e) => {
 
   target.reset();
 });
+
+const imgSwitchBtn = document.getElementById('imgSwitchBtn');
+const picture = document.getElementById('picture');
+
+// const srcNode = document.createAttribute('src');
+
+// picture.setAttributeNode(srcNode);
+
+// srcNode.value = 'https://static.vecteezy.com/system/resources/thumbnails/024/646/930/small_2x/ai-generated-stray-cat-in-danger-background-animal-background-photo.jpg';
+
+imgSwitchBtn.addEventListener('click', (e) => {
+
+  // зміна атрибутів
+
+  // 1. сеттери для унікальних атрибутів елемента / деяких глобальних атрибутів
+  // picture.src = 'https://static.vecteezy.com/system/resources/thumbnails/024/646/930/small_2x/ai-generated-stray-cat-in-danger-background-animal-background-photo.jpg';
+  // picture.alt = 'рудий кіт';
+
+  // picture.id = 'cat';
+
+  // picture.className = 'newClass1 newClass2';
+
+  // picture.style = 'border: 5px solid red';
+
+  // 2. через setAttribute
+  // picture.setAttribute('src', 'https://static.vecteezy.com/system/resources/thumbnails/024/646/930/small_2x/ai-generated-stray-cat-in-danger-background-animal-background-photo.jpg');
+  // picture.setAttribute('alt', 'рудий кіт');
+
+  picture.setAttribute('id', 'cat');
+
+  picture.setAttribute('style', 'border: 5px solid red');
+
+  picture.setAttribute('my-attribute', 'test');
+
+  // 3. через вузол-атрибут
+
+  const srcNode = document.createAttribute('src');
+
+  console.dir(srcNode);
+  srcNode.value = 'https://static.vecteezy.com/system/resources/thumbnails/024/646/930/small_2x/ai-generated-stray-cat-in-danger-background-animal-background-photo.jpg';
+
+  picture.setAttributeNode(srcNode);
+});
+
+/*
+  ще деякі цікаві методи роботи з атрибутами:
+
+  picture.hasAttribute('src') - перевірка наявності атрибута
+  picture.getAttribute('src') - отримання значення атрибута
+  picture.getAttributeNode('src') - отримати об'єкт вузла атрибута
+
+  picture.removeAttribute('src') - прибирає атрибут з елемента
+*/
