@@ -478,8 +478,8 @@ const imgData = [
   ],
   [
     'https://cdn.mos.cms.futurecdn.net/xaycNDmeyxpHDrPqU6LmaD.jpg',
-    'mountain 2'
-  ]
+    'mountain 2',
+  ],
 ];
 
 // attrImg.setAttribute('src', imgData[0].src);
@@ -556,3 +556,27 @@ console.log(div.dataset.longAttributeName); // data-long-attribute-name у html
   element.style = 'backround-color: ;';
   element.style.backgroundColor = '';
 */
+
+const dataBgDiv = document.getElementById('dataBgDiv');
+const btns1 = document.querySelectorAll('#dataBgDiv > button');
+
+// dataBgDiv.addEventListener('click', (e) => {
+//   const { target } = e;
+
+//   if (target.tagName === 'BUTTON') {
+//     // const bgColor = target.dataset.bgColor;
+//     const { bgColor } = target.dataset;
+//     dataBgDiv.style.backgroundColor = bgColor;
+//   }
+// });
+
+const clickHandler =  (e) => {
+  const { target } = e;
+
+  const { bgColor } = target.dataset;
+  dataBgDiv.style.backgroundColor = bgColor;
+}
+
+btns1.forEach((btn) => {
+  btn.addEventListener('click', clickHandler);
+});
