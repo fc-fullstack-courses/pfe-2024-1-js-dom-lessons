@@ -374,7 +374,7 @@ squareForm.addEventListener('submit', (e) => {
     target: {
       elements: { num },
     },
-    target
+    target,
   } = e;
 
   // value інпута завжди рядок
@@ -382,7 +382,7 @@ squareForm.addEventListener('submit', (e) => {
 
   const number = +num.value;
 
-  if(isNaN(number)) {
+  if (isNaN(number)) {
     squareDisplay.textContent = `Введіть корректне число`;
   } else {
     squareDisplay.textContent = `Результат: ${Math.pow(num.value, 2)}`;
@@ -401,7 +401,6 @@ const picture = document.getElementById('picture');
 // srcNode.value = 'https://static.vecteezy.com/system/resources/thumbnails/024/646/930/small_2x/ai-generated-stray-cat-in-danger-background-animal-background-photo.jpg';
 
 imgSwitchBtn.addEventListener('click', (e) => {
-
   // зміна атрибутів
 
   // 1. сеттери для унікальних атрибутів елемента / деяких глобальних атрибутів
@@ -429,7 +428,8 @@ imgSwitchBtn.addEventListener('click', (e) => {
   const srcNode = document.createAttribute('src');
 
   console.dir(srcNode);
-  srcNode.value = 'https://static.vecteezy.com/system/resources/thumbnails/024/646/930/small_2x/ai-generated-stray-cat-in-danger-background-animal-background-photo.jpg';
+  srcNode.value =
+    'https://static.vecteezy.com/system/resources/thumbnails/024/646/930/small_2x/ai-generated-stray-cat-in-danger-background-animal-background-photo.jpg';
 
   picture.setAttributeNode(srcNode);
 });
@@ -453,3 +453,75 @@ imgSwitchBtn.addEventListener('click', (e) => {
   * переробити структуру масиву так, щоб в ньому одночасно можна було зберігати і значення src
     і значення alt. При натисканні на кнопку треба змінювати не тільки src але і alt
 */
+const attrImg = document.getElementById('attrImg');
+const attrBtn = document.getElementById('attrBtn');
+
+// const imgData = [
+//   {
+//     src: 'https://moderncat.com/wp-content/uploads/2013/09/MaineCoon_ss_1784842319_Sergey-Ginak-1024x819.jpg',
+//     alt: 'maine coon cat',
+//   },
+//   {
+//     src: 'https://assets.iflscience.com/assets/articleNo/73209/aImg/74597/longest-ocean-range-meta.jpg',
+//     alt: 'mountain range at dusk',
+//   },
+// ];
+
+const imgData = [
+  [
+    'https://moderncat.com/wp-content/uploads/2013/09/MaineCoon_ss_1784842319_Sergey-Ginak-1024x819.jpg',
+    'maine coon cat',
+  ],
+  [
+    'https://assets.iflscience.com/assets/articleNo/73209/aImg/74597/longest-ocean-range-meta.jpg',
+    'mountain range at dusk',
+  ],
+  [
+    'https://cdn.mos.cms.futurecdn.net/xaycNDmeyxpHDrPqU6LmaD.jpg',
+    'mountain 2'
+  ]
+];
+
+// attrImg.setAttribute('src', imgData[0].src);
+// attrImg.setAttribute('alt', imgData[0].alt);
+
+attrImg.setAttribute('src', imgData[0][0]);
+attrImg.setAttribute('alt', imgData[0][1]);
+
+attrBtn.addEventListener('click', (e) => {
+  debugger;
+  const currentSrc = attrImg.getAttribute('src');
+
+  // if(currentSrc === imgData[0].src) {
+  //   attrImg.setAttribute('src', imgData[1].src);
+  //   attrImg.setAttribute('alt', imgData[1].alt);
+  // } else {
+  //   attrImg.setAttribute('src', imgData[0].src);
+  //   attrImg.setAttribute('alt', imgData[0].alt);
+  // }
+
+  // if (currentSrc === imgData[0][0]) {
+  //   attrImg.setAttribute('src', imgData[1][0]);
+  //   attrImg.setAttribute('alt', imgData[1][1]);
+  // } else {
+  //   attrImg.setAttribute('src', imgData[0][0]);
+  //   attrImg.setAttribute('alt', imgData[0][1]);
+  // }
+
+  // attrImg.setAttribute(
+  //   'src',
+  //   currentSrc === imgData[0].src ? imgData[1].src : imgData[0].src
+  // );
+  // attrImg.setAttribute(
+  //   'alt',
+  //   currentSrc === imgData[0].src ? imgData[1].alt : imgData[0].alt
+  // );
+
+  const imgIndex = imgData.findIndex((image) => currentSrc === image[0]);
+
+  const [src, alt] = imgData[(imgIndex + 1) % imgData.length];
+
+  attrImg.setAttribute('src', src);
+
+  attrImg.setAttribute('alt', alt);
+});
