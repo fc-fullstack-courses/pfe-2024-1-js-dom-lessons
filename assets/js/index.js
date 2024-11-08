@@ -570,13 +570,34 @@ const btns1 = document.querySelectorAll('#dataBgDiv > button');
 //   }
 // });
 
-const clickHandler =  (e) => {
+const clickHandler = (e) => {
   const { target } = e;
 
   const { bgColor } = target.dataset;
   dataBgDiv.style.backgroundColor = bgColor;
-}
+};
 
 btns1.forEach((btn) => {
   btn.addEventListener('click', clickHandler);
 });
+
+// створення елементів
+const elem = document.createElement('h1');
+
+elem.textContent = 'Hello from DOM';
+
+elem.id = 'dom-h1';
+
+const rootDiv = document.getElementById('root');
+
+// вставка elem останньою дитиною rootDiv
+rootDiv.appendChild(elem);
+
+
+const p1 = document.createElement('p');
+
+p1.textContent = 'test';
+
+// rootDiv.appendChild(p1);
+
+rootDiv.append(p1,'some text');
