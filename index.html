@@ -2,15 +2,15 @@
 <html>
   <head>
     <title>JS DOM</title>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="assets/css/reset.css">
-    <link rel="stylesheet" href="assets/css/style.css">
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="assets/css/reset.css" />
+    <link rel="stylesheet" href="assets/css/style.css" />
   </head>
   <body>
     <div class="container">
       <h1 id="h1" class="main-heading">JS DOM</h1>
-      <input type="text" name="someInputName" disabled>
+      <input type="text" name="someInputName" disabled />
       <button>Click me</button>
       <button id="resetBtn" class="error">reset</button>
       <select name="someInputName" id="select-1"></select>
@@ -21,7 +21,10 @@
       <button id="squareBtn">Розрахувати квадарат</button>
     </div>
 
-    <div id="btnContainer" style="margin: 20px; padding: 20px; border: 4px dashed black">
+    <div
+      id="btnContainer"
+      style="margin: 20px; padding: 20px; border: 4px dashed black"
+    >
       <button id="btn1">1</button>
       <button id="btn2">2</button>
       <button id="btn3">3</button>
@@ -36,23 +39,36 @@
     </div>
 
     <form id="form">
-      <input type="text" name="inputName">
+      <input type="text" name="inputName" />
       <button id="formSumbitBtn" type="submit">Відправити форму</button>
     </form>
 
     <p id="squareDisplay">Введіть число</p>
     <form id="squareForm">
-      <input type="number" name="num">
+      <input type="number" name="num" />
       <button>Розрахувати квадарат</button>
     </form>
 
-    <img src="https://wpmedia.roomsketcher.com/content/uploads/2021/12/07103531/RoomSketcher-Decorate-Living-Room-With-Ease.jpg" alt="Кімната" id="picture">
+    <img
+      src="https://wpmedia.roomsketcher.com/content/uploads/2021/12/07103531/RoomSketcher-Decorate-Living-Room-With-Ease.jpg"
+      alt="Кімната"
+      id="picture"
+    />
     <button id="imgSwitchBtn">Зробити картинку котом</button>
 
     <!-- attribute task -->
-    <div style="display: flex; flex-direction: column;">
-      <img src="" alt="cat" id="attrImg">
+    <div style="display: flex; flex-direction: column">
+      <img src="" alt="cat" id="attrImg" />
       <button id="attrBtn">Switch image</button>
+    </div>
+
+    <div id="div" data-long-attribute-name="its very long" data-theme="light" data-id="5" data-language="latin" class="bigDiv">
+      Lorem ipsum dolor sit amet, consectetur adipisicing elit. Corrupti
+      inventore impedit molestias voluptas ea, odit debitis? Dolor corporis ipsa
+      maxime doloremque officiis veniam, doloribus ab a corrupti id alias
+      accusamus eum, obcaecati impedit cupiditate expedita voluptatibus quam
+      quas architecto. Error quo doloribus, vero cumque natus deserunt dolorem
+      asperiores tempore quisquam.
     </div>
 
     <script src="assets/js/index.js"></script>

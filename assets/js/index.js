@@ -525,3 +525,22 @@ attrBtn.addEventListener('click', (e) => {
 
   attrImg.setAttribute('alt', alt);
 });
+
+/*
+  Користувацькі атрибути (data-*)
+  атрибути. які розпочинаються з data-
+*/
+
+const div = document.getElementById('div');
+
+// отримання значення користувацького атрибуту
+const currentTheme = div.getAttribute('data-theme');
+
+// dataset - властивість куди скидають значення всіх користувацьких атрибутів
+console.log(div.dataset);
+
+console.log(div.dataset.theme);
+// кебаб кейс в html автоматично перетвор.ється на кемел кейс у JS
+console.log(div.dataset.longAttributeName); // data-long-attribute-name у html
+
+// div.setAttribute('data-theme', 'dark');
