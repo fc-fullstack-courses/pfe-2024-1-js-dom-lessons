@@ -544,3 +544,15 @@ console.log(div.dataset.theme);
 console.log(div.dataset.longAttributeName); // data-long-attribute-name у html
 
 // div.setAttribute('data-theme', 'dark');
+
+/*
+  створити дів вскредині якого будуть кнопки
+  текст кнопок буде різними кольорами україносьокю мовою
+  
+  при натисканні на кнопку колір фону діва має змінитися на колір з кнопки
+  для передачи значення кольорів використовувати користувацькі атрибути
+
+  колір фону можна міняти наступним чином:
+  element.style = 'backround-color: ;';
+  element.style.backgroundColor = '';
+*/
