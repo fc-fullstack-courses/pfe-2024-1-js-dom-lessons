@@ -615,3 +615,11 @@ function createPar (text) {
 
   document.body.append(newPar);
 }
+
+// видалення елементів
+
+// 1. removeChild - видаляє у елемента дитину
+rootDiv.removeChild(elem);
+
+// 2. remove - видаля сам елемент
+p1.remove();
