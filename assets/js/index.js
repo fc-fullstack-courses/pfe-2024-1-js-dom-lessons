@@ -608,3 +608,10 @@ rootDiv.append(p1,'some text');
   покласти в нього текст з параметра функції
   і прикріпити параграф до кінця елементу body
 */
+
+function createPar (text) {
+  const newPar = document.createElement('p');
+  newPar.textContent = text;
+
+  document.body.append(newPar);
+}
