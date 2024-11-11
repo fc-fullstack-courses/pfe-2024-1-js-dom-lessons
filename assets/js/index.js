@@ -623,3 +623,19 @@ rootDiv.removeChild(elem);
 
 // 2. remove - видаля сам елемент
 p1.remove();
+
+/*
+  Element - клас для елементів у ДОМ
+
+  elem.children - список дітей-елементів певного елемента
+
+  elem.className - рядок з класом елемента
+  elem.className = 'class-1 class-2' - заміна класів для елементу
+
+  elem.classList - об'ект атрибуту класу
+  elem.classList.add('className', 'className2') - додає до існуючих класів новий клас/и
+  elem.classList.remove('className', 'className2') - прибирає вказаний клас/и зі списку існуючих класів 
+  elem.classList.toggle('className') - додає або видаляє вказаний клас зі списку класів
+
+  elem.innerHTML - дає доступ до повної внутрішньої HTML розмітки елемента
+*/
