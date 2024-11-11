@@ -23,3 +23,32 @@
   background-color: white;
   color: black;
 }
+
+.post {
+  padding: 20px;
+  background-color: lightgray;
+  max-width: 500px;
+  border: 5px solid black;
+  border-radius: 10px;
+  margin: 10px;
+}
+
+.post-title,
+.post-subtitle {
+  margin-bottom: 12px;
+}
+
+.post-title {
+  font-size: 2rem;
+  font-weight: bold;
+  text-align: center;
+}
+
+.post-subtitle {
+  font-size: 1.5rem;
+  text-align: right;
+}
+
+.post-text {
+  text-align: justify;
+}

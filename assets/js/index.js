@@ -593,14 +593,13 @@ const rootDiv = document.getElementById('root');
 // вставка elem останньою дитиною rootDiv
 rootDiv.appendChild(elem);
 
-
 const p1 = document.createElement('p');
 
 p1.textContent = 'test';
 
 // rootDiv.appendChild(p1);
 
-rootDiv.append(p1,'some text');
+rootDiv.append(p1, 'some text');
 
 /*
   створити функцію яка приймає рядок з текстом
@@ -609,7 +608,7 @@ rootDiv.append(p1,'some text');
   і прикріпити параграф до кінця елементу body
 */
 
-function createPar (text) {
+function createPar(text) {
   const newPar = document.createElement('p');
   newPar.textContent = text;
 
@@ -639,3 +638,38 @@ p1.remove();
 
   elem.innerHTML - дає доступ до повної внутрішньої HTML розмітки елемента
 */
+
+const post = {
+  user: "Leanne Graham",
+  id: 1,
+  title:
+    'sunt aut facere repellat provident occaecati excepturi optio reprehenderit',
+  body: 'quia et suscipit\nsuscipit recusandae consequuntur expedita et cum\nreprehenderit molestiae ut ut quas totam\nnostrum rerum est autem sunt rem eveniet architecto',
+};
+
+const renderRoot = document.getElementById('renderRoot');
+
+function createPost (postObject) {
+  const postArticle = document.createElement('article');
+  postArticle.classList.add('post');
+
+  const postTitle = document.createElement('h2');
+  postTitle.classList.add('post-title');
+  postTitle.textContent = postObject.title;
+
+  const postSubtitle = document.createElement('h3');
+  postSubtitle.classList.add('post-subtitle');
+  postSubtitle.textContent = `by ${postObject.user}`;
+
+  const postText = document.createElement('p');
+  postText.classList.add('post-text');
+  postText.textContent = postObject.body;
+
+  postArticle.append(postTitle, postSubtitle, postText);
+
+  return postArticle;
+}
+
+const post1Elem = createPost(post);
+
+renderRoot.append(post1Elem);
