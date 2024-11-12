@@ -1,12 +1,12 @@
 // синхронний код
 
-console.log('first');
+// console.log('first');
 
-console.log('second');
+// console.log('second');
 
-// for(let i = 0; i < 1_500_000_000; i++) {}
+// // for(let i = 0; i < 1_500_000_000; i++) {}
 
-console.log('third');
+// console.log('third');
 
 // асинхроний код
 const btn = document.getElementById('btn');
@@ -76,7 +76,7 @@ function countInterval() {
   let i = 0;
 
   const intervalId = setInterval(() => {
-    console.log(++i);
+    // console.log(++i);
     if (i >= 10) {
       console.timeEnd('Interval');
       clearInterval(intervalId);
@@ -84,14 +84,14 @@ function countInterval() {
   }, 100);
 }
 
-console.time('Interval');
+// console.time('Interval');
 countInterval();
 
 function countTimeout(i = 0) {
 
   if (i < 10) {
     setTimeout(() => {
-      console.log(++i);
+      // console.log(++i);
       countTimeout(i);
     }, 100);
   } else {
@@ -100,7 +100,7 @@ function countTimeout(i = 0) {
 }
 
 
-console.time('Timeout');
+// console.time('Timeout');
 countTimeout();
 
 const userData = {
@@ -114,11 +114,11 @@ const userData = {
   friends: [],
   isMale: true,
   someImportantData: null,
-  someSymbol: Symbol('test me plz'),
-  age: undefined,
-  isAdult : function (){
-    return this.age >= 18;
-  }
+  // someSymbol: Symbol('test me plz'),
+  // age: undefined,
+  // isAdult : function (){
+  //   return this.age >= 18;
+  // }
 }
 
 // серіалізація - процеc перетворення даних у вигляд зручний для передачі
@@ -132,3 +132,36 @@ const jsonString = JSON.stringify(userData);
 
 // десереалізація - процес відновлення даних із зручного для передачі формату
 const userData2 = JSON.parse(jsonString);
+
+console.log(userData);
+console.log(userData2);
+
+console.log(userData === userData2); // false
+
+// види копій об'єктів у JS
+
+const posts = [
+  {id: 1, title: 'bla', likes: 50},
+  {id: 2, title: 'bla bla', likes: 15},
+  {id: 3, title: 'bla bla bla', likes: 800},
+];
+
+// поверхнева копія об'єкта - копія робиться тільки для самої змінної об'єкта
+// властивості переносятся без змін
+const postsCopy1 = posts.slice();
+const postsCopy2 = [...posts];
+
+posts === postsCopy1; // false
+console.log(posts[1] === postsCopy1[1]); // true
+
+// глибока копія - копія робиться для всіх речей в об'єкті
+
+const temp = JSON.stringify(posts);
+const postsCopy3 = JSON.parse(temp);
+
+postsCopy3[2] === posts[2]; // false
+
+const postsCopy4 = JSON.parse(JSON.stringify(posts));
+
+const postsCopy5 = structuredClone(posts);
+postsCopy5[0] === posts[0]; //false
