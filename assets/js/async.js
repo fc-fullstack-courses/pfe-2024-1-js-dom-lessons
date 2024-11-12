@@ -15,7 +15,6 @@ btn.addEventListener('click', () => {
   // while(true) {}
 });
 
-
 function sum() {
   // debugger;
   return 1 + 1;
@@ -28,33 +27,32 @@ function sum() {
 //   console.log('delayed');
 // }, 1000);
 
+// console.log(1);
 
-console.log(1);
-
-console.log(2);
+// console.log(2);
 
 const id = setTimeout(() => {
-  console.log(3);
+  // console.log(3);
 }, 0);
 
-console.log(4);
+// console.log(4);
 // 1 2 4 3
 
 // відміна таймаута по його id
 clearTimeout(id);
 
 const id2 = setTimeout(() => {
-  console.log(5000);
+  // console.log(5000);
 }, 5000);
 
 setTimeout(() => {
   // clearTimeout(id2);
-  console.log(1000);
+  // console.log(1000);
 }, 1000);
 
 // setInterval - встановлює інтервал, який буде працювати до зупинки запускаючи коллбек
 const intervalId = setInterval(() => {
-  console.log('interval');
+  // console.log('interval');
 }, 1500);
 
 // зупинка інтервалу
@@ -73,3 +71,34 @@ clearInterval(intervalId);
     setInterval - треба якось вчасно зупинити інтервал по якійсь умові
     setTimeout - рішення буде засновано на рекурсії яка буде запускати таймаути поки певна умова істинна
 */
+
+function countInterval() {
+  let i = 0;
+
+  const intervalId = setInterval(() => {
+    console.log(++i);
+    if (i >= 10) {
+      console.timeEnd('Interval');
+      clearInterval(intervalId);
+    }
+  }, 100);
+}
+
+console.time('Interval');
+countInterval();
+
+function countTimeout(i = 0) {
+
+  if (i < 10) {
+    setTimeout(() => {
+      console.log(++i);
+      countTimeout(i);
+    }, 100);
+  } else {
+    console.timeEnd('Timeout');
+  }
+}
+
+
+console.time('Timeout');
+countTimeout();
