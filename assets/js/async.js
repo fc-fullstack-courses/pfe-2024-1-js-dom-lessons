@@ -165,3 +165,54 @@ const postsCopy4 = JSON.parse(JSON.stringify(posts));
 
 const postsCopy5 = structuredClone(posts);
 postsCopy5[0] === posts[0]; //false
+
+
+function test () {
+  console.log(1);
+
+  function test2() {
+    console.log(2);
+  }
+
+  test2();
+
+  console.log(3);
+}
+
+setTimeout(test, 5000);
+
+// типовий асинхроний код в JS у 2014 році
+
+function readFile() {}
+
+function writeFile() {}
+
+// error first callback
+readFile('../test.json', function callback (err, fileData) {
+  if(err) {
+    throw err;
+  }
+
+  console.log(fileData);
+
+  readFile('../test.json', function callback (err, fileData2) {
+    if(err) {
+      throw err;
+    }
+
+    readFile('../test.json', function callback (err, fileData3) {
+      if(err) {
+        throw err;
+      }
+      const newData = fileData + fileData2 + fileData3;
+
+      writeFile('../new-test.json', 'utf-8', newData ,function callback (err) {
+        if(err) {
+          throw err;
+        }
+    
+        console.log('ми записали файл!');
+      });
+    });
+  });
+});
