@@ -1,0 +1,9 @@
+{
+  "email": "test@test.test",
+  "password": "12345admin",
+  "id": 5,
+  "address": { "city": "Zaporizhzhia", "country": "Ukraine" },
+  "friends": [],
+  "isMale": true,
+  "someImportantData": null
+}

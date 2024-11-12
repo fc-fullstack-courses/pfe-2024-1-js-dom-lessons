@@ -102,3 +102,33 @@ function countTimeout(i = 0) {
 
 console.time('Timeout');
 countTimeout();
+
+const userData = {
+  email: 'test@test.test',
+  password: '12345admin',
+  id: 5,
+  address: {
+    city: 'Zaporizhzhia',
+    country: "Ukraine"
+  },
+  friends: [],
+  isMale: true,
+  someImportantData: null,
+  someSymbol: Symbol('test me plz'),
+  age: undefined,
+  isAdult : function (){
+    return this.age >= 18;
+  }
+}
+
+// серіалізація - процеc перетворення даних у вигляд зручний для передачі
+const jsonString = JSON.stringify(userData);
+/*
+    відмінності JSON та JS
+  1. рядки в JSON можуть бути тільки подвійними лапками
+  2. ключі в об'єктах мають бути рядками
+  3. відсутнівсть висячих ком у кінці об'єктів та масивів
+*/
+
+// десереалізація - процес відновлення даних із зручного для передачі формату
+const userData2 = JSON.parse(jsonString);
