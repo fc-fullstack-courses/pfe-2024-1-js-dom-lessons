@@ -230,14 +230,14 @@ readFile('../test.json', function callback(err, fileData) {
 */
 
 // створення проміса
-console.log('before executor');
+// console.log('before executor');
 const promise = new Promise(executor);
 
 function executor(resolve, reject) {
   // console.log(resolve);
   // console.log(reject);
 
-  console.log('executor');
+  // console.log('executor');
 
   // функціія яка сигналізує що дія виконана успішно
   // і аргумент цієї функції буде результучим даними у промісі
@@ -252,26 +252,26 @@ function executor(resolve, reject) {
   }, 500);
 }
 
-console.log('after executor');
+// console.log('after executor');
 
 // then - метод який дозволить зреагувати на завершення асинхронної операції
 promise.then(
   // fullfilledCallback запускається при успішному виконання проміса
   function fullfilledCallback(promiseResult) {
-    console.log('promise fullfilled');
-    console.log(promiseResult); // promiseResult це результат роботи проміса
+    // console.log('promise fullfilled');
+    // console.log(promiseResult); // promiseResult це результат роботи проміса
   },
   // rejectedCallback запускається при провальному виконанні проміса
   function rejectedCallback(error) {
-    console.log('promise rejected');
-    console.log(error); // error це дані про помилку
+    // console.log('promise rejected');
+    // console.log(error); // error це дані про помилку
   }
 );
 
 // catch - метод для обробки помилок в промісах
 promise.catch(function rejectedCallback(error) {
-  console.log('promise rejected and catched');
-  console.log(error); // error це дані про помилку
+  // console.log('promise rejected and catched');
+  // console.log(error); // error це дані про помилку
 });
 
 /*
@@ -282,20 +282,20 @@ promise.catch(function rejectedCallback(error) {
   обидва випадки
 */
 
-const mousePromise = new Promise((res, rej) => {
-  if (Math.random() > 0.5) {
-    res('миша жива');
-  } else {
-    rej('миша майже жива');
-  }
-});
+// const mousePromise = new Promise((res, rej) => {
+//   if (Math.random() > 0.5) {
+//     res('миша жива');
+//   } else {
+//     rej('миша майже жива');
+//   }
+// });
 
-mousePromise.then(
-  (message) => console.log(message)
-  // (errorMessage) => console.error(errorMessage)
-);
+// mousePromise.then(
+//   (message) => console.log(message)
+//   // (errorMessage) => console.error(errorMessage)
+// );
 
-mousePromise.catch((errorMessage) => console.error(errorMessage));
+// mousePromise.catch((errorMessage) => console.error(errorMessage));
 
 // const fetchResult = fetch('../../test.json');
 
@@ -324,17 +324,30 @@ mousePromise.catch((errorMessage) => console.error(errorMessage));
 // });
 
 fetch('../../test.json')
-  .then((response) => {
-    const resJsonResult = response.json();
-    return resJsonResult;
-  })
-  .then((data) => {
-    console.log(data); // user object
+  .then(
+    (response) => {
+      const resJsonResult = response.json();
+      return resJsonResult;
+    }
+  )
+  .then(
+    (data) => {
+      console.log(data); // user object
 
-    return {
-      ...data,
-      isOnline: true,
-    };
-  }).then((user) => {
-    console.log(`user status: ${user.isOnline}`)
+      return {
+        ...data,
+        isOnline: true,
+      };
+    },
+    // (error) => {
+    //   // console.log(error);
+
+    //   return { id: -1 };
+    // }
+  )
+  .then((user) => {
+    console.log(`user id: ${user.id}`);
+  })
+  .catch((error) => {
+    console.log(error);
   });
