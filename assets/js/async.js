@@ -133,10 +133,10 @@ const jsonString = JSON.stringify(userData);
 // десереалізація - процес відновлення даних із зручного для передачі формату
 const userData2 = JSON.parse(jsonString);
 
-console.log(userData);
-console.log(userData2);
+// console.log(userData);
+// console.log(userData2);
 
-console.log(userData === userData2); // false
+// console.log(userData === userData2); // false
 
 // види копій об'єктів у JS
 
@@ -152,7 +152,7 @@ const postsCopy1 = posts.slice();
 const postsCopy2 = [...posts];
 
 posts === postsCopy1; // false
-console.log(posts[1] === postsCopy1[1]); // true
+// console.log(posts[1] === postsCopy1[1]); // true
 
 // глибока копія - копія робиться для всіх речей в об'єкті
 
@@ -168,15 +168,15 @@ postsCopy5[0] === posts[0]; //false
 
 
 function test () {
-  console.log(1);
+  // console.log(1);
 
   function test2() {
-    console.log(2);
+    // console.log(2);
   }
 
   test2();
 
-  console.log(3);
+  // console.log(3);
 }
 
 setTimeout(test, 5000);
@@ -193,7 +193,7 @@ readFile('../test.json', function callback (err, fileData) {
     throw err;
   }
 
-  console.log(fileData);
+  // console.log(fileData);
 
   readFile('../test.json', function callback (err, fileData2) {
     if(err) {
@@ -211,7 +211,7 @@ readFile('../test.json', function callback (err, fileData) {
           throw err;
         }
     
-        console.log('ми записали файл!');
+        // console.log('ми записали файл!');
       });
     });
   });
@@ -233,17 +233,26 @@ readFile('../test.json', function callback (err, fileData) {
 */
 
 // створення проміса
+console.log('before executor');
 const promise = new Promise(executor);
 
 function executor (resolve, reject) {
   // console.log(resolve);
   // console.log(reject);
 
+  console.log('executor');
+
   // функціія яка сигналізує що дія виконана успішно 
   // і аргумент цієї функції буде результучим даними у промісі
-  resolve('test string'); 
+  setTimeout(() => {
+    resolve('test string'); 
+  }, 450);
 
   // функціія яка сигналізує що дія виконана з помилкою 
   // і аргумент цієї функції буде результучим даними у промісі
-  reject('bad stuff');
+  setTimeout(() => {
+    reject('bad stuff');
+  }, 500);
 }
+
+console.log('after executor');
