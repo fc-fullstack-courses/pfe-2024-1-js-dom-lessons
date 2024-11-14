@@ -273,3 +273,26 @@ promise.catch(function rejectedCallback(error) {
   console.log('promise rejected and catched');
   console.log(error); // error це дані про помилку
 });
+
+/*
+  Створити через конструктор проміс.
+  Проміс має у 50% випадків виконуватися успішно
+  а в інший випадках - провалюватися
+  через методи then i catch обробіть
+  обидва випадки
+*/
+
+const mousePromise = new Promise((res, rej) => {
+  if (Math.random() > 0.5) {
+    res('миша жива');
+  } else {
+    rej('миша майже жива');
+  }
+});
+
+mousePromise.then(
+  (message) => console.log(message),
+  // (errorMessage) => console.error(errorMessage)
+);
+
+mousePromise.catch((errorMessage) => console.error(errorMessage));
