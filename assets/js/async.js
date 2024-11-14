@@ -291,8 +291,50 @@ const mousePromise = new Promise((res, rej) => {
 });
 
 mousePromise.then(
-  (message) => console.log(message),
+  (message) => console.log(message)
   // (errorMessage) => console.error(errorMessage)
 );
 
 mousePromise.catch((errorMessage) => console.error(errorMessage));
+
+// const fetchResult = fetch('../../test.json');
+
+// const promise1 = fetchResult.then((response) => {
+//   // console.log(response);
+
+//   // асинхроний метод десереалізації даних
+//   const resJsonResult = response.json();
+
+//   // resJsonResult.then((data) => {
+//   //   console.log(data);
+//   // });
+
+//   // це опиниться у виконаному promise1
+//   // return 42;
+//   return resJsonResult;
+// });
+
+// const promise2 = promise1.then((data) => {
+//   console.log(data); // user object
+
+//   return {
+//     ...data,
+//     isOnline: true
+//   }
+// });
+
+fetch('../../test.json')
+  .then((response) => {
+    const resJsonResult = response.json();
+    return resJsonResult;
+  })
+  .then((data) => {
+    console.log(data); // user object
+
+    return {
+      ...data,
+      isOnline: true,
+    };
+  }).then((user) => {
+    console.log(`user status: ${user.isOnline}`)
+  });
