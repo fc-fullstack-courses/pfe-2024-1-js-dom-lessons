@@ -88,7 +88,6 @@ function countInterval() {
 countInterval();
 
 function countTimeout(i = 0) {
-
   if (i < 10) {
     setTimeout(() => {
       // console.log(++i);
@@ -99,7 +98,6 @@ function countTimeout(i = 0) {
   }
 }
 
-
 // console.time('Timeout');
 countTimeout();
 
@@ -109,7 +107,7 @@ const userData = {
   id: 5,
   address: {
     city: 'Zaporizhzhia',
-    country: "Ukraine"
+    country: 'Ukraine',
   },
   friends: [],
   isMale: true,
@@ -119,7 +117,7 @@ const userData = {
   // isAdult : function (){
   //   return this.age >= 18;
   // }
-}
+};
 
 // серіалізація - процеc перетворення даних у вигляд зручний для передачі
 const jsonString = JSON.stringify(userData);
@@ -141,9 +139,9 @@ const userData2 = JSON.parse(jsonString);
 // види копій об'єктів у JS
 
 const posts = [
-  {id: 1, title: 'bla', likes: 50},
-  {id: 2, title: 'bla bla', likes: 15},
-  {id: 3, title: 'bla bla bla', likes: 800},
+  { id: 1, title: 'bla', likes: 50 },
+  { id: 2, title: 'bla bla', likes: 15 },
+  { id: 3, title: 'bla bla bla', likes: 800 },
 ];
 
 // поверхнева копія об'єкта - копія робиться тільки для самої змінної об'єкта
@@ -166,8 +164,7 @@ const postsCopy4 = JSON.parse(JSON.stringify(posts));
 const postsCopy5 = structuredClone(posts);
 postsCopy5[0] === posts[0]; //false
 
-
-function test () {
+function test() {
   // console.log(1);
 
   function test2() {
@@ -188,29 +185,29 @@ function readFile() {}
 function writeFile() {}
 
 // error first callback
-readFile('../test.json', function callback (err, fileData) {
-  if(err) {
+readFile('../test.json', function callback(err, fileData) {
+  if (err) {
     throw err;
   }
 
   // console.log(fileData);
 
-  readFile('../test.json', function callback (err, fileData2) {
-    if(err) {
+  readFile('../test.json', function callback(err, fileData2) {
+    if (err) {
       throw err;
     }
 
-    readFile('../test.json', function callback (err, fileData3) {
-      if(err) {
+    readFile('../test.json', function callback(err, fileData3) {
+      if (err) {
         throw err;
       }
       const newData = fileData + fileData2 + fileData3;
 
-      writeFile('../new-test.json', 'utf-8', newData ,function callback (err) {
-        if(err) {
+      writeFile('../new-test.json', 'utf-8', newData, function callback(err) {
+        if (err) {
           throw err;
         }
-    
+
         // console.log('ми записали файл!');
       });
     });
@@ -236,19 +233,19 @@ readFile('../test.json', function callback (err, fileData) {
 console.log('before executor');
 const promise = new Promise(executor);
 
-function executor (resolve, reject) {
+function executor(resolve, reject) {
   // console.log(resolve);
   // console.log(reject);
 
   console.log('executor');
 
-  // функціія яка сигналізує що дія виконана успішно 
+  // функціія яка сигналізує що дія виконана успішно
   // і аргумент цієї функції буде результучим даними у промісі
   setTimeout(() => {
-    resolve('test string'); 
+    // resolve('test string');
   }, 450);
 
-  // функціія яка сигналізує що дія виконана з помилкою 
+  // функціія яка сигналізує що дія виконана з помилкою
   // і аргумент цієї функції буде результучим даними у промісі
   setTimeout(() => {
     reject('bad stuff');
@@ -256,3 +253,17 @@ function executor (resolve, reject) {
 }
 
 console.log('after executor');
+
+// then - метод який дозволить зреагувати на завершення асинхронної операції
+promise.then(
+  // fullfilledCallback запускається при успішному виконання проміса
+  function fullfilledCallback(promiseResult) {
+    console.log('promise fullfilled');
+    console.log(promiseResult); // promiseResult це результат роботи проміса
+  },
+  // rejectedCallback запускається при провальному виконанні проміса
+  function rejectedCallback(error) {
+    console.log('promise rejected');
+    console.log(error); // error це дані про помилку
+  }
+);
