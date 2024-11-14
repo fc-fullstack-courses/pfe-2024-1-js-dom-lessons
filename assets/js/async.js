@@ -322,6 +322,7 @@ promise.catch(function rejectedCallback(error) {
 //     isOnline: true
 //   }
 // });
+const loader = document.getElementById('loader');
 
 fetch('../../test.json')
   .then(
@@ -347,7 +348,12 @@ fetch('../../test.json')
   )
   .then((user) => {
     console.log(`user id: ${user.id}`);
+    // loader.remove();
   })
   .catch((error) => {
     console.log(error);
+    document.body.append('No user detected')
+    // loader.remove();
+  }).finally(() => {
+    loader.remove();
   });
