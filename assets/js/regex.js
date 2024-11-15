@@ -125,3 +125,40 @@
   Логіне АБО
   x|y - підставляє реішення або з х або з у 
 */
+
+/*
+Є слова
+
+Java
+JavaScript
+java
+javascript
+json
+JSON
+
+знайти всі варіації Java і JavaScript
+
+[Jj]ava[Ss]cript|[Jj]ava
+[Jj]ava(?:[Ss]cript){0,1}
+[Jj]ava(?:[Ss]cript)?
+^\wa\w+$
+
+знайти усі існуючі мови програмування (без C=, c=, json, JSON)
+
+Java
+JavaScript
+java
+javascript
+C
+c
+C#
+c#
+C++
+c++
+
+json
+JSON
+C=
+c=
+
+*/
