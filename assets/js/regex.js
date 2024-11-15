@@ -162,3 +162,28 @@ C=
 c=
 
 */
+
+/* 
+ RegExp у JS
+*/
+
+// Створення.
+
+// 1 літерал
+const regex1 = /^[0-9]/gm;
+
+// 2 конструктор
+const regex2 = new RegExp('^[0-9]', 'gm');
+
+
+const result1 = regex1.exec(`sa\n1av`);
+
+const res2 = regex1.test(`5 `);
+
+const strToTest = `5\n1av`;
+
+
+const startIndex = strToTest.search(regex1);
+console.log(startIndex);
+
+const res = strToTest.match(regex1);
